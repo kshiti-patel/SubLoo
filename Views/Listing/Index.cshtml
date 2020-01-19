@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SubLoo.Models.Listing>
+
+@{
+    ViewBag.Title = "Find";
+}
+<h2>Find your housing here</h2>
+<img src="https://images.app.goo.gl/KhQyxoAwFwd93TMt6"
+     alt="student housing picture" />
+
+<p>
+    Subloo was started by a group of three University of Waterloo students who were frustrated with the tedious process of trying to find a place
+    to live every other four months when heading back to school after their co-op term. We joined local Facebook groups, messaged people, received no responses
+    and if we did, we were told several days later that our dream budget-friendly place was already sold to someone else. At Subloo, we want
+    to make the process of selling and buying resential properties less stressful for students. To get started, create a free account...
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
